@@ -1046,7 +1046,8 @@
 }
 
 -(void)changeToErrorImage{
-    self.imageView.image = MHGalleryImage(@"error");
+    self.imageView.image = [MHGalleryImage(@"error") imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    self.imageView.tintColor = [UIColor whiteColor];
 }
 
 -(void)changePlayButtonToUnPlay{
@@ -1470,7 +1471,7 @@
                 }
             }
         }
-        self.act.color = [UIColor blackColor];
+        self.act.color = [UIColor whiteColor];
     }
     if (self.item.galleryType == MHGalleryTypeVideo) {
         
