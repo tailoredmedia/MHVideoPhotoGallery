@@ -317,6 +317,8 @@
 -(void)cancelInteractiveTransition{
     [super cancelInteractiveTransition];
     
+    UINavigationController *fromViewController = (UINavigationController*)[self.context viewControllerForKey:UITransitionContextFromViewControllerKey];
+    
     [UIView animateWithDuration:0.3 animations:^{
         if (self.moviePlayer) {
             if (self.toTransform != self.orientationTransformBeforeDismiss) {
@@ -338,7 +340,6 @@
         [self.cellImageSnapshot removeFromSuperview];
         [self.backView removeFromSuperview];
         
-        UINavigationController *fromViewController = (UINavigationController*)[self.context viewControllerForKey:UITransitionContextFromViewControllerKey];
         if (self.moviePlayer) {
             if (self.toTransform != self.orientationTransformBeforeDismiss) {
                 self.moviePlayer.view.transform = CGAffineTransformMakeRotation(self.toTransform);
